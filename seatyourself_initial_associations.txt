@@ -1,0 +1,31 @@
+                                                                         +-----------------------------------------------+
+        +---------------------------------------+                        |                      name                     |
+        |                                       |      has_one           |                      summary                  |
+        |                                       |                        |                      street number            |
+        |                                       +-------------------->   |                     	Street name              |
+        |                                       |                        |                     	city	                 |
+        |          User     first_name          |                        |                     	province                 |
+        |                   last_name           |  <---------------------+        Restaurant    postal code              |
+        |                   email               |                        |                      country                  |
+        |                   password            |       belongs_to       |                      phone_number             |
+        |                                       |                        |                      website_url              |
+        |                                       |                        |                      price_range              |
+        |                                       |                        |                      user_id                  |
+        +--------+------------------------------+                        +------------------------+----------------------+
+                 |                                                                                |
+                 |                                                                                |
+                 |    ^                                                                 ^         |
+                 |    |                                                    belongs_to   |         |
+                 |    |                                                                 |         |
+                 |    |   belongs_to      +------------------------------------+        |         |
+has_many         |    |                   |                                    |        |         |     has_many
+                 |    |                   |                  seating_time      |        |         |
+                 |    |                   |                  party_size        |        |         |
+                 |    +-------------------+                  user_id           +--------+         |
+                 |                        |    Reservation   restaurant_id     |                  |
+                 |                        |                                    |                  |
+                 +-------------------->   |                                    |  <---------------+
+                                          |                                    |
+                                          |                                    |
+                                          |                                    |
+                                          +------------------------------------+

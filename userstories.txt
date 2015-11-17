@@ -1,0 +1,92 @@
+1. Need
+
+	Visitors
+	---
+	-As a visitor, I want to see a directory of the restaurants available.
+	-As a visitor, when I click on a restaurant, I want to be able to see:
+			address
+				-Street number
+				-Street name
+				-city
+				-province
+				-postal code
+				-country
+			phone number
+			neighbourhood
+			price range
+			summary
+			menu
+			a list of available timeslots
+			website url
+	-As a visitor, I want to sign up for a customer account so that I can make reservations online.
+
+	Customer
+	---
+	-As a customer, want a user account with my name and email address and password.
+	-As a customer, I want to be able to make a reservation online
+	-As a customer I want to be able to view all my reservations
+	-As a customer -I want to be able to view a specific reservation
+	-As a customer, I want to be able to update a reservation
+	-As a customer, I want to be able to cancel a reservation
+
+
+	Restaurant Owner
+	---
+	-As a restaurant owner, I need to be able to add my restaurant.
+	-As the restaurant owner, I want to see the list of the weeks reservations.
+	-As a restaurant owner I want to edit my restaraunt's attributes
+	-As a restaurant owner I want to delete my restaurant
+
+	-A restaurant can only be open from 11am - 8pm, 7 days a week.
+	-A restaurant can only hold 100 people in any given time slot.
+	-A reservation can be for a party of 2 to 20 people.
+
+
+2. Nice
+
+	Visitors
+	----
+	-As a visitor, I would like to be able to view restaurants based on their cuisine category (e.g. Italian). This can be down with a drop-down menu using collection_select.
+	-As a visitor, I would like to be able to view reviews, so I can make an informed decision
+	-As a visitor, I see a list of locations and click to view all restaurants for location
+	-As a visitor, I can view the menu, so I can see the food choices
+	-As a visitor, I can view an about, so I know more about the restaurant.
+	-As a visitor, I can search by CusineType, Location, Restaurant
+	-As a visitor, I can see a photo of the restauraunt.
+
+	Customers
+	---
+	-As a customer, I want to be able to leave reviews
+	-As a customer, I want to receive an email confirmation after I've made a reservation.
+	-As a customer, I want to set my home location, to show local restaurants by default
+	-As a customer, I want to see the location of a restaurant on a map, so that I can see its proximity.
+	-As a customer, I want to see my location on a map, so I understand my relative position to the restaurants
+	-As a customer, I would like to "favourte" a restaurant so that I can refer back to it
+
+	Restaurant Owner
+	---
+	-As a restaurant owner I want to be able to assign a CuisineType.
+	-As a restaurant owner, I want to edit reservations, so I can control capacity
+
+
+
+
+3. Happy
+
+	Customer
+	----
+	-As a customer, I want to receive loyalty points when I make a reservation.
+		-As a customer, I want to see my loyalty points in my account profile.
+		-As the restaurant owner, I want to see my customer list with how many points each person has and how much they have spent online.
+	-As a user I would like to get email reminders of my reservation, so I don't forget
+
+	Visitor
+	----
+	-As a visitor, I could search for restaurants based on open reservation capacity.
+	-As a visitor, I could check if a restaurant has wifi
+	-As a visitor, can view sub categories
+	-As a visitor, I can search by price
+
+	Restaurant Owner
+	---
+	As a restaurant Owner, can add sub categories, so users can be more specific than CuisineType
