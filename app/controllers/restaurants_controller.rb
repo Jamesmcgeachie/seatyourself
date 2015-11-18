@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 
 
 before_action :get_restaurant, only: [:show, :edit, :update]
+before_action :authorize_owner, only: [:edit, :update, :destroy]
 
   def new
     @restaurant = Restaurant.new
@@ -39,5 +40,14 @@ before_action :get_restaurant, only: [:show, :edit, :update]
   def get_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
+
+  def authorize_owner
+    @restaurant = Restaurant.find(params[:id])
+    unless current_user.id == @restaurant.user_id
+      flash[:alert] = "You do not own this restaurant."
+      redirect_to restaurants_path
+    end
+  end
+
 end
 
