@@ -1,4 +1,4 @@
-class RestaurantController < ApplicationController
+class RestaurantsController < ApplicationController
 
 
 before_action :get_restaurant, only: [:show, :edit, :update]
@@ -40,4 +40,3 @@ before_action :get_restaurant, only: [:show, :edit, :update]
   end
 end
 
-end
