@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :show, :edit, :update, :create]
   resources :restaurants
-  get '/signup' => 'user#new'
-  get '/login' => 'session#new'
+  get '/signup' => 'users#new'
+  get '/login' => 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 
 
