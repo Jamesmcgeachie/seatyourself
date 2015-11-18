@@ -1,0 +1,16 @@
+<h1>Login to Seat Yourself</h1>
+
+<%= form_tag sessions_path do %>
+
+<div class="labels">
+	<p><%= label_tag :email %></p>
+	<p><%= label_tag :password %></p>
+</div>
+<div class="inputs">
+	<p><%= text_field_tag :email %></p>
+	<p><%= password_field_tag :password %></p>
+</div>
+<div>
+	<p><%= submit_tag class: 'Submit' %></p>
+</div>
+<% end %>
