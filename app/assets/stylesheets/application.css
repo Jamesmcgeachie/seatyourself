@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.labels {
+	float: left;
+	display: inline-block;
+}
+
+.inputs {
+	float: right;
+	display: inline-block;
+}
+
+.submit {
+	clear: both;
+}

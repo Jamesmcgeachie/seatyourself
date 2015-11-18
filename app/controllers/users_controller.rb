@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
 
@@ -9,6 +9,7 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to new_restaurant_path, notice: "Successfully signed up for a Seat Yourself account."
     else
       render :new
