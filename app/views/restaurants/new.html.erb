@@ -47,28 +47,32 @@
 
     <div class="field">
 	    <%= f.label :postal_code %><br />
-	    <%= f.number_field :postal_code %>
+	    <%= f.text_field :postal_code %>
   	</div>
 
      <div class="field">
 	    <%= f.label :country %><br />
-	    <%= f.number_field :country %>
+	    <%= f.text_field :country %>
   	</div>
 
      <div class="field">
 	    <%= f.label :phone_number %><br />
-	    <%= f.number_field :phone_number %>
+	    <%= f.text_field :phone_number %>
   	</div>
 
      <div class="field">
 	    <%= f.label :website_url %><br />
-	    <%= f.number_field :website_url %>
+	    <%= f.text_field :website_url %>
   	</div>
 
   	<div class="actions">
     	<%= f.submit %>
   	</div>
 <% end %>
+
+<p>
+<%= link_to 'Back', restaurants_path %>
+</p>
 
 
    

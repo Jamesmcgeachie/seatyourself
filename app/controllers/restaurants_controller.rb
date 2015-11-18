@@ -10,7 +10,7 @@ before_action :get_restaurant, only: [:show, :edit, :update]
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      redirect_to restaurant_path, notice: "Successfully signed up for a Seat Yourself account."
+      redirect_to restaurants_path, notice: "Successfully signed up for a Seat Yourself account."
     else
       render :new
     end
