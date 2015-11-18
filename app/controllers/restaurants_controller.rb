@@ -43,7 +43,7 @@ before_action :authorize_owner, only: [:edit, :update, :destroy]
 
   def authorize_owner
     @restaurant = Restaurant.find(params[:id])
-    unless current_user.id == @restaurant.user_id
+    unless current_user == @restaurant.user_id
       flash[:alert] = "You do not own this restaurant."
       redirect_to restaurants_path
     end
