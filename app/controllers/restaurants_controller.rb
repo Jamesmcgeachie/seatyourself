@@ -4,6 +4,10 @@ class RestaurantsController < ApplicationController
 before_action :get_restaurant, only: [:show, :edit, :update]
 before_action :authorize_owner, only: [:edit, :update, :destroy]
 
+  def index
+    @restaurants = Restaurant.all
+  end
+
   def new
     @restaurant = Restaurant.new
   end

@@ -3,17 +3,29 @@
 <h1>Restaurants#show</h1>
 
 
-<%= link_to "Back to Restaurants", restaurants_url %> | 
-<%= link_to "Edit", edit_restaurant_path(@restaurant) %> | 
-<%= link_to("Delete", restaurant_path(@restaurant), { 
-	    method: :delete, 
+<%= link_to "Back to Restaurants", restaurants_url %> |
+<%= link_to "Edit", edit_restaurant_path(@restaurant) %> |
+<%= link_to("Delete", restaurant_path(@restaurant), {
+	    method: :delete,
 	    data: {
 	  	  confirm: "Are you sure you want to delete this restaurant?"
-	    } 
-	  } 
-	) 
+	    }
+	  }
+	)
 %>
 
-<p><%= @restaurant.name %> </p> 
+<p><%= @restaurant.name %> </p>
 <p> <%= @restaurant.summary %> </p>
+<div>
+	<p> <%= "#{@restaurant.street_number} #{@restaurant.street_name}" %> </p>
+	<p> <%= @restaurant.city %> </p>
+	<p> <%= @restaurant.province %> </p>
+	<p> <%= @restaurant.country %> </p>
+	<p> <%= @restaurant.postal_code %> </p>
+	<p> <%= @restaurant.phone_number %> </p>
+	<p> <%= @restaurant.website_url %> </p>
+</div>
+
+<%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
+
 

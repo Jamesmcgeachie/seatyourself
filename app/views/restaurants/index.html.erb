@@ -1,2 +1,9 @@
-<h1>  Welcome to Index of Restaurants <h1>
+<h1>Welcome to Index of Restaurants<h1>
 
+<div>
+	<% @restaurants.each do |restaurant| %>
+	<p>
+			<%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+	</p>
+	<% end %>
+</div>

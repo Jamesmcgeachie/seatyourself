@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'restaurants#index'
 
   resources :users, only: [:new, :show, :edit, :update, :create]
   resources :restaurants do
