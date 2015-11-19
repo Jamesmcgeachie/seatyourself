@@ -1,4 +1,8 @@
 class ReservationsController < ApplicationController
+
+  before_action :get_restaurant
+  before_action :get_reservation
+
   def index
   end
 
@@ -24,9 +28,15 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    if @reservation.update_attributes(reservation_params)
+      redirect_to restaurant_path(@restaurant), notice: "Successfully updated your reservation at #{@reservation.restaurant.name}."
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @reservation.destroy
   end
 
   private
@@ -37,5 +47,9 @@ class ReservationsController < ApplicationController
 
   def get_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def get_reservation
+    @reservation = @restaurant.reservations.find(params[:id])
   end
 end
