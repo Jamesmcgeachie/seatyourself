@@ -1,0 +1,14 @@
+<%= form_for ([@restaurant, @reservation]) do |f| %>
+
+<div class="labels">
+	<p><%= f.label :seating_time %></p>
+	<p><%= f.label :party_size %></p>
+</div>
+<div class="inputs">
+	<p><%= f.datetime_local_field :seating_time %></p>
+	<p><%= f.number_field :party_size %></p>
+</div>
+<div class="submit">
+	<p><%= f.submit  %></p>
+</div>
+<% end %>

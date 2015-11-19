@@ -8,7 +8,22 @@
 </head>
 <body>
 
-<%= yield %>
+	<% if current_user %>
+		<p>
+			Logged in as <%= current_user.email %>.
+			<%= link_to "Log Out", session_path(current_user), method: 'delete' %>
+		</p>
+
+	<% else %>
+		<p>
+			Welcome to Seat Yourself.
+			<%= link_to "Sign Up", signup_path %> |
+			<%= link_to "Log in", login_path %>
+		</p>
+
+	<% end %>
+
+	<%= yield %>
 
 </body>
 </html>
