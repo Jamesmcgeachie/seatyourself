@@ -1,9 +1,12 @@
 class ReservationsController < ApplicationController
 
+  before_action :authenticate_user
   before_action :get_restaurant
   before_action :get_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
+    # should this be showing all reservations for current_user...
+    # or all reservations...?
   end
 
   def show

@@ -38,4 +38,13 @@ class UsersController < ApplicationController
   def get_user
     @user = User.find(params[:id])
   end
+
+  def user_profile_permission
+    get_user
+    unless @user.id == current_user
+      flash[:alert] = "That's not your profile ID. Redirected to your profile."
+      redirect_to user_path(@user)
+    end
+  end
+
 end
