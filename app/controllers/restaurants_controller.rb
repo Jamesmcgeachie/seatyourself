@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
 
 
-before_action :get_restaurant, only: [:show, :edit, :update, :destroy]
-before_action :owner_authorized, only: [:edit, :update, :destroy]
+before_action :get_restaurant, only: [:show, :edit, :update]
+before_action :owner_authorized, only: [:edit, :update]
 
   def index
     @restaurants = Restaurant.all
@@ -38,14 +38,6 @@ before_action :owner_authorized, only: [:edit, :update, :destroy]
       redirect_to root_path, notice: "Successfully updated your restaurant account"
     else
       render :edit
-    end
-  end
-
-  def destroy
-    if @restaurant.destroy
-      redirect_to new_restaurant_path
-    else
-      render :show
     end
   end
 
