@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user
   before_action :get_restaurant, only: [:new, :show, :edit, :update, :destroy, :create]
   before_action :get_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :user_reservation_authorization, only: [:show, :edit, :update, :destroy]
 
   def index
     @reservations = Reservation.where(user_id: current_user)
@@ -57,4 +58,13 @@ class ReservationsController < ApplicationController
   def get_reservation
     @reservation = @restaurant.reservations.find(params[:id])
   end
+
+  def user_reservation_authorization
+    get_reservation
+    unless @reservation.user_id == current_user.id
+      flash[:alert] = "Unauthorized to access this reservation"
+      redirect_to root_path
+    end
+  end
+
 end

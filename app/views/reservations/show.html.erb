@@ -1,2 +1,6 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h1>Viewing your reservation at <%= @reservation.restaurant.name %></h1>
+
+<div>
+	<p><%= @reservation.seating_time %></p>
+	<p><%= @reservation.party_size %></p>
+</div>
