@@ -1,2 +1,11 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h1>All reservations for <%= @reservations.first.user.first_name %></h1>
+
+<div>
+	<% @reservations.each do |reservation| %>
+		<p><%= reservation.restaurant.name %></p>
+		<p><%= reservation.seating_time %></p>
+		<p><%= reservation.party_size %></p>
+		<% binding.pry %>
+		<p><%= link_to "Edit Reservation", edit_restaurant_reservation_path(reservation.restaurant, reservation) %></p>
+	<% end %>
+</div>
