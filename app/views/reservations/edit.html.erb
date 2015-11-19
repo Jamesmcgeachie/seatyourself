@@ -1,5 +1,9 @@
 <h1>Edit your reservation at <%= @reservation.restaurant.name %></h1>
 
 <div>
-<%= render 'form' %>
+	<%= render 'form' %>
+</div>
+
+<div class="delete">
+	<%= link_to "Cancel my reservation", restaurant_reservation_path(@reservation.restaurant, @reservation), method: 'delete', data: { confirm: "Are you sure you want to cancel?" } %>
 </div>

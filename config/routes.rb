@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :show, :edit, :update, :create]
   resources :restaurants do
-    resources :reservations
+    resources :reservations, only: [:new, :show, :edit, :update, :create, :destroy]
   end
+  get '/reservations' => 'reservations#index'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

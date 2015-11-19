@@ -1,11 +1,15 @@
-<h1>All reservations for <%= @reservations.first.user.first_name %></h1>
+<h1>All reservations for <%= current_user.first_name %></h1>
 
-<div>
-	<% @reservations.each do |reservation| %>
-		<p><%= reservation.restaurant.name %></p>
-		<p><%= reservation.seating_time %></p>
-		<p><%= reservation.party_size %></p>
-		<% binding.pry %>
-		<p><%= link_to "Edit Reservation", edit_restaurant_reservation_path(reservation.restaurant, reservation) %></p>
-	<% end %>
-</div>
+<% if @reservations.any? %>
+	<div>
+		<% @reservations.each do |reservation| %>
+			<p><%= reservation.restaurant.name %></p>
+			<p><%= reservation.seating_time %></p>
+			<p><%= reservation.party_size %></p>
+			<p><%= link_to "Edit Reservation", edit_restaurant_reservation_path(reservation.restaurant, reservation) %></p>
+		<% end %>
+	</div>
+
+<% else %>
+	<p>No Reservations for <%= current_user.first_name %></p>
+<% end %>

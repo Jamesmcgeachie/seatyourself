@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action :authenticate_user
-  before_action :get_restaurant
+  before_action :get_restaurant, only: [:new, :show, :edit, :update, :destroy, :create]
   before_action :get_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -37,7 +37,11 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation.destroy
+    if @reservation.destroy
+      redirect_to reservations_path
+    else
+      render :edit
+    end
   end
 
   private
