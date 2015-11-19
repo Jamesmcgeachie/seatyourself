@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action :get_restaurant
-  before_action :get_reservation
+  before_action :get_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
     else
       render restaurant_path(@restaurant)
     end
-  end
   end
 
   def edit
@@ -46,7 +45,7 @@ class ReservationsController < ApplicationController
   end
 
   def get_restaurant
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def get_reservation
