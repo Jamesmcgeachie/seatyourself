@@ -3,6 +3,7 @@
 <% if @reservations.any? %>
 	<div>
 		<% @reservations.each do |reservation| %>
+		<% binding.pry %>
 			<p><%= reservation.restaurant.name %></p>
 			<p><%= reservation.seating_time %></p>
 			<p><%= reservation.party_size %></p>

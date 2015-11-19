@@ -26,6 +26,12 @@
 	<p> <%= @restaurant.website_url %> </p>
 </div>
 
-<%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
+<% if @restaurant.is_owned_by?(current_user) %>
+	<% current_user.owned_restaurant.reservations.each do |reservation| %>
+		<p><%= "#{reservation.id}: #{reservation.user.first_name} #{reservation.user.last_name}, #{reservation.seating_time}, #{reservation.party_size}" %></p>
+		<% end %>
+<% else %>
+	<%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
+<% end %>
 
 

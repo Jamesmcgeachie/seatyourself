@@ -1,15 +1,20 @@
 class RestaurantsController < ApplicationController
 
 
-before_action :get_restaurant, only: [:show, :edit, :update]
-before_action :authorize_owner, only: [:edit, :update, :destroy]
+before_action :get_restaurant, only: [:show, :edit, :update, :destroy]
+before_action :owner_authorized, only: [:edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
   end
 
   def new
-    @restaurant = Restaurant.new
+    unless current_user.owned_restaurant
+      @restaurant = Restaurant.new
+    else
+      flash[:alert] = "You already own a restaurant! Cannot own more than one."
+      redirect_to restaurant_path(current_user.owned_restaurant)
+    end
   end
 
   def create
@@ -26,7 +31,6 @@ before_action :authorize_owner, only: [:edit, :update, :destroy]
   end
 
   def edit
-  	 @restaurant = Restaurant.find(params[:id])
   end
 
   def update
@@ -37,6 +41,15 @@ before_action :authorize_owner, only: [:edit, :update, :destroy]
     end
   end
 
+  def destroy
+    if @restaurant.destroy
+      redirect_to new_restaurant_path
+    else
+      render :show
+    end
+  end
+
+
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :summary, :street_number, :street_name, :city, :province, :postal_code, :country, :phone_number, :website_url)
@@ -46,13 +59,12 @@ before_action :authorize_owner, only: [:edit, :update, :destroy]
     @restaurant = Restaurant.find(params[:id])
   end
 
-  def authorize_owner
-    @restaurant = Restaurant.find(params[:id])
-    unless current_user == @restaurant.user_id
+  def owner_authorized
+    get_restaurant
+    unless @restaurant.is_owned_by?(current_user)
       flash[:alert] = "You do not own this restaurant."
       redirect_to restaurants_path
     end
   end
-
 end
 
