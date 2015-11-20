@@ -12,57 +12,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="labels">
+    <p><%= f.label :name %></p>
+    <p id="summary"><%= f.label :summary %></p>
+    <p><%= f.label :street_number %></p>
+    <p><%= f.label :street_name %></p>
+    <p><%= f.label :city %></p>
+    <p><%= f.label :province %></p>
+    <p><%= f.label :postal_code %></p>
+    <p><%= f.label :country %></p>
+    <p><%= f.label :phone_number %></p>
+    <p><%= f.label :website_url %></p>
   </div>
 
-  <div class="field">
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary %>
+  <div class="inputs">
+    <p><%= f.text_field :name %></p>
+    <p><%= f.text_area :summary %></p>
+    <p><%= f.number_field :street_number %></p>
+	  <p><%= f.text_field :street_name %></p>
+    <p><%= f.text_field :city %></p>
+    <p><%= f.text_field :province %></p>
+    <p><%= f.text_field :postal_code %></p>
+    <p><%= f.text_field :country %></p>
+    <p><%= f.text_field :phone_number %></p>
+    <p><%= f.text_field :website_url %></p>
   </div>
 
-  <div class="field">
-    <%= f.label :street_number %><br />
-    <%= f.number_field :street_number %>
-  </div>
-
-   <div class="field">
-		<%= f.label :street_name %><br />
-	    <%= f.text_field :street_name %>
-  </div>
-
-    <div class="field">
-   	    <%= f.label :city %><br />
-	    <%= f.text_field :city %>
+	<div class="submit">
+  	<%= f.submit %>
 	</div>
-
-    <div class="field">
-	    <%= f.label :province %><br />
-	    <%= f.text_field :province %>
-    </div>
-
-    <div class="field">
-	    <%= f.label :postal_code %><br />
-	    <%= f.text_field :postal_code %>
-  	</div>
-
-     <div class="field">
-	    <%= f.label :country %><br />
-	    <%= f.text_field :country %>
-  	</div>
-
-     <div class="field">
-	    <%= f.label :phone_number %><br />
-	    <%= f.text_field :phone_number %>
-  	</div>
-
-     <div class="field">
-	    <%= f.label :website_url %><br />
-	    <%= f.text_field :website_url %>
-  	</div>
-
-  	<div class="actions">
-    	<%= f.submit %>
-  	</div>
 <% end %>

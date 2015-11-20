@@ -18,7 +18,7 @@
 			menu
 			a list of available timeslots
 			website url
-	-As a visitor, I want to sign up for a customer account so that I can make reservations online.
+	As a visitor, I want to sign up for a customer account so that I can make reservations online.
 
 	Customer
 	---
