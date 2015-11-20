@@ -1,34 +1,30 @@
 <h1>Showing details for <%= @restaurant.name %></h1>
-
-<%= link_to "Back to Restaurants", restaurants_url %> |
-<%= link_to "Edit", edit_restaurant_path(@restaurant) %> |
-<%= link_to("Delete", restaurant_path(@restaurant), {
-	    method: :delete,
-	    data: {
-	  	  confirm: "Are you sure you want to delete this restaurant?"
-	    }
-	  }
-	)
-%>
-
-<p><%= @restaurant.name %> </p>
-<p> <%= @restaurant.summary %> </p>
-<div>
-	<p> <%= "#{@restaurant.street_number} #{@restaurant.street_name}" %> </p>
-	<p> <%= @restaurant.city %> </p>
-	<p> <%= @restaurant.province %> </p>
-	<p> <%= @restaurant.country %> </p>
-	<p> <%= @restaurant.postal_code %> </p>
-	<p> <%= @restaurant.phone_number %> </p>
-	<p> <%= @restaurant.website_url %> </p>
+<div class="links">
+	<%= link_to "Back to Restaurants", restaurants_url %> |
+	<%= link_to "Edit", edit_restaurant_path(@restaurant) %>
 </div>
 
-<% if @restaurant.is_owned_by?(current_user) %>
-	<% current_user.owned_restaurant.reservations.each do |reservation| %>
-		<p><%= "#{reservation.id}: #{reservation.user.first_name} #{reservation.user.last_name}, #{reservation.seating_time}, #{reservation.party_size}" %></p>
-		<% end %>
-<% else %>
-	<%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
-<% end %>
+<div class="restaurantdetails">
+	<p>Name: <%= @restaurant.name %> </p>
+	<p>Summary: <%= @restaurant.summary %></p>
+	<div>
+		<p>Address: <%= "#{@restaurant.street_number} #{@restaurant.street_name}" %> </p>
+		<p>City: <%= @restaurant.city %> </p>
+		<p>Province: <%= @restaurant.province %> </p>
+		<p>Country: <%= @restaurant.country %> </p>
+		<p>Postal Code: <%= @restaurant.postal_code %> </p>
+		<p>Phone: <%= @restaurant.phone_number %> </p>
+		<p>Website: <%= @restaurant.website_url %> </p>
+	</div>
+</div>
+<div class="allresormakeres">
+	<% if @restaurant.is_owned_by?(current_user) %>
+		<% current_user.owned_restaurant.reservations.each do |reservation| %>
+			<p><%= "#{reservation.id}: #{reservation.user.first_name} #{reservation.user.last_name}, #{reservation.seating_time}, #{reservation.party_size}" %></p>
+			<% end %>
+	<% else %>
+		<p id="makeres"><%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %></p>
+	<% end %>
+</div>
 
 

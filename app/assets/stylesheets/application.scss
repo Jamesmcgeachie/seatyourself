@@ -115,7 +115,8 @@ body {
 h1 {
 	font-size: 26px;
 	color: purple;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
+	text-align: center;
 }
 
 form {
@@ -131,5 +132,35 @@ form {
 		padding-top: 15px;
 		padding-bottom: 20px;
 
+	}
+}
+
+div {
+
+	.links {
+
+		float: left;
+		margin-left: 30%;
+		padding-bottom: 20px;
+	}
+
+	.restaurantdetails {
+
+		float: right;
+		margin-right: 30%;
+
+	}
+
+	.allresormakeres {
+
+		padding-top: 20px;
+		clear: both;
+		text-align: center;
+
+		#makeres {
+
+			font-size: 30px;
+
+		}
 	}
 }
