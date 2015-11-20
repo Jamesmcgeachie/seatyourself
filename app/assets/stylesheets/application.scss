@@ -20,20 +20,48 @@
 $bgandlinks: #F9FFC5;
 $navbarandborder: #A23D7C;
 
+html {
+
+	font-size: 100%;
+	line-height: 1.35;
+
+}
+
 .labels {
 	float: left;
-	display: inline-block;
 }
 
 .inputs {
 	float: right;
-	display: inline-block;
 }
 
 .submit {
 	clear: both;
 }
 
+.formstyle {
+
+	width: 70%;
+	margin: auto;
+
+}
+
+form {
+
+	.labels {
+
+		padding: 5px;
+		font-size: 14px;
+
+	}
+
+	#summary {
+
+		padding-top: 15px;
+		padding-bottom: 20px;
+
+	}
+}
 
 body {
 
@@ -119,21 +147,6 @@ h1 {
 	text-align: center;
 }
 
-form {
-
-	.labels {
-
-		padding: 10px;
-
-	}
-
-	#summary {
-
-		padding-top: 15px;
-		padding-bottom: 20px;
-
-	}
-}
 
 div {
 
