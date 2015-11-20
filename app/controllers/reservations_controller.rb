@@ -22,7 +22,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to restaurant_path(@restaurant), notice: "Your reservation was successfully created!"
     else
-      render restaurant_path(@restaurant)
+      flash[:alert] = "Sorry, you can't make that reservation"
+      render :new
     end
   end
 
