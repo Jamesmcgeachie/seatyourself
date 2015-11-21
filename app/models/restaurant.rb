@@ -3,6 +3,7 @@ class Restaurant < ActiveRecord::Base
   has_many :reservations
   validates :name, presence:true
   validates :name, uniqueness: { case_sensitive: false,  scope: [:street_number, :street_name, :city, :province, :country] }
+
   def is_owned_by?(user)
   	owner == user
   end
