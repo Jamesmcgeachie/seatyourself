@@ -27,5 +27,19 @@
 		<p id="makeres"><%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %></p>
 	<% end %>
 </div>
+<h1>Reviews</h1>
+<div class="reviews">
+	<% if current_user %>
+		<p>Leave a new Review</p>
+			<%= render partial: 'reviews/review_form' %>
+		<p>All reviews</p>
+			<%= render partial: 'reviews/review', collection: @restaurant.reviews.order(created_at: :desc) %>
+	<% else %>
+		<p>
+			<%= link_to 'Login to leave your own review', login_path %>
+		</p>
+		<%= render partial: 'reviews/review', collection: @restaurant.reviews.order(created_at: :desc) %>
+	<% end %>
+</div>
 
 

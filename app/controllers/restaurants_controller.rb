@@ -28,6 +28,9 @@ before_action :owner_authorized, only: [:edit, :update]
   end
 
   def show
+    if current_user
+      @review = @restaurant.reviews.build
+    end
   end
 
   def edit

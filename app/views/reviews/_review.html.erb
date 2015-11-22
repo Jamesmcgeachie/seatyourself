@@ -1,0 +1,15 @@
+<div ="review">
+	<%= review.body %>
+	<% if review.user != nil %>
+		<p>by <%= review.user.email %> </p>
+		<p>Added on:
+			<time><%= review.created_at %></time>
+		</p>
+	<% end %>
+	<% if review.written_by?(current_user) %>
+		<p>
+			<%= link_to 'Edit review', edit_restaurant_review_path(review.restaurant_id, review.id) %> |
+			<%= link_to 'Delete Review', restaurant_review_path(review.restaurant_id, review.id), method: 'delete' %>
+		</p>
+	<% end %>
+</div>

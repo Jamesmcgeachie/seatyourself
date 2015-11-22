@@ -1,21 +1,11 @@
 Rails.application.routes.draw do
-  get 'reviews/show'
-
-  get 'reviews/new'
-
-  get 'reviews/edit'
-
-  get 'reviews/update'
-
-  get 'reviews/create'
-
-  get 'reviews/destroy'
 
   root 'restaurants#index'
 
   resources :users, only: [:new, :show, :edit, :update, :create]
   resources :restaurants, only: [:new, :show, :edit, :update, :create, :index] do
     resources :reservations, only: [:new, :show, :edit, :update, :create, :destroy]
+    resources :reviews, only: [:show, :create, :edit, :update, :destroy]
   end
   get '/reservations' => 'reservations#index'
   get '/signup' => 'users#new'

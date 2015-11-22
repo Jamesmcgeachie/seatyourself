@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant), notice: "Review has been added to #{@restaurant.name}"
     else
-      render: 'restaurants/show'
+      render 'restaurants/show'
     end
   end
 
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   def update
     user_review_authorization
     if @review.update_attributes(review_params)
-      redirect_to restaurant_path(@restaurant), :notice "Successfully updated review"
+      redirect_to restaurant_path(@restaurant), notice: "Successfully updated review"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review has been deleted"
       redirect_to restaurant_path(@restaurant)
     else
-      render: edit
+      render :edit
     end
   end
 
@@ -59,6 +59,10 @@ class ReviewsController < ApplicationController
       flash[:alert] = "Unauthorized to edit this review"
       redirect_to root_path
     end
+  end
+
+  def review_params
+    params.require(:review).permit(:title, :body, :restaurant_id, :user_id)
   end
 
 end
