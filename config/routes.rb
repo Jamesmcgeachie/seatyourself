@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:show, :create, :edit, :update, :destroy]
   end
   get '/reservations' => 'reservations#index'
+  get '/reviews' => 'reviews#index'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
 
+  before_action :get_restaurant, only: [:create, :edit, :update, :destroy]
   before_action :get_review, only: [:show, :edit, :update, :destroy]
-  before_action :get_restaurant, only: [:create]
   before_action :authenticate_user, only: [:new, :create, :update, :edit, :destroy]
+
+  def index
+    @reviews = Review.where(user_id: current_user)
+  end
 
   def show
   end
