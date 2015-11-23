@@ -35,7 +35,7 @@ before_action :owner_authorized, only: [:edit, :update]
 
   def update
     if @restaurant.update_attributes(restaurant_params)
-      redirect_to root_path, notice: "Successfully updated your restaurant account"
+      redirect_to restaurant_path(@restaurant), notice: "Successfully updated your restaurant details"
     else
       render :edit
     end

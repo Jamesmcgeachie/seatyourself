@@ -35,11 +35,14 @@
 </div>
 <h1>Reviews</h1>
 <div class="reviews">
-	<% if current_user %>
+	<% if current_user && @restaurant.is_owned_by?(current_user) != true %>
 		<p>Leave a new Review</p>
-			<%= render partial: 'reviews/review_form' %>
+		<%= render partial: 'reviews/review_form' %>
 		<p>All reviews</p>
-			<%= render partial: 'reviews/review', collection: @restaurant.reviews.order(created_at: :desc) %>
+		<%= render partial: 'reviews/review', collection: @restaurant.reviews.order(created_at: :desc) %>
+	<% elsif current_user && @restaurant.is_owned_by?(current_user) %>
+		<p>All reviews for your restaurant</p>
+		<%= render partial: 'reviews/review', collection: @restaurant.reviews.order(created_at: :desc) %>
 	<% else %>
 		<p>
 			<%= link_to 'Login to leave your own review', login_path %>
