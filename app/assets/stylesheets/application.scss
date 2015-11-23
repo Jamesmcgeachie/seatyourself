@@ -151,16 +151,13 @@ h1 {
 div {
 
 	.links {
-
-		float: left;
-		margin-left: 30%;
+		text-align: center;
 		padding-bottom: 20px;
 	}
 
 	.restaurantdetails {
 
-		float: right;
-		margin-right: 30%;
+		text-align: center;
 
 	}
 
@@ -187,4 +184,26 @@ div {
 
 		text-align: left;
 	}
+}
+
+.category-search {
+
+	text-align: center;
+}
+
+.restaurant-list {
+
+	text-align: center;
+
+}
+
+.profile {
+
+	text-align: center;
+
+}
+
+.reviews {
+
+	text-align: center;
 }

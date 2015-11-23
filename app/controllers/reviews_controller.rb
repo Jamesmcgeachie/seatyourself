@@ -11,9 +11,6 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  def new
-  end
-
   def create
     @review = @restaurant.reviews.build(review_params)
     @review.user = current_user
@@ -68,5 +65,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :body, :restaurant_id, :user_id)
   end
-
 end

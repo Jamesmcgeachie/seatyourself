@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'restaurants#index'
+  root 'categories#index'
 
   resources :users, only: [:new, :show, :edit, :update, :create]
-  resources :restaurants, only: [:new, :show, :edit, :update, :create, :index] do
+  resources :restaurants, only: [:new, :show, :edit, :update, :create] do
     resources :reservations, only: [:new, :show, :edit, :update, :create, :destroy]
     resources :reviews, only: [:show, :create, :edit, :update, :destroy]
   end
+  resources :categories, only: [:index]
   get '/reservations' => 'reservations#index'
   get '/reviews' => 'reviews#index'
   get '/signup' => 'users#new'

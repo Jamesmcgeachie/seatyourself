@@ -1,0 +1,7 @@
+<%= form_tag "/categories", method: :get %>
+	Search:
+	<%= select_tag(:query, options_for_select(
+		@categories.collect { |category|
+			[category.category_name, category.id]
+		})) %>
+<%= submit_tag "Choose Category" %>

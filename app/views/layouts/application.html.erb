@@ -16,9 +16,10 @@
 			<div class="navmenu">
 		    <p>Logged in as <%= current_user.email %>.</p>
 				<p>
-					<%= link_to "All Restaurants", root_path %>
+					<%= link_to "Home", root_path %>
 					<%= link_to "My Reservations", reservations_path %>
 					<%= link_to "My Reviews", reviews_path %>
+					<%= link_to "My Profile", user_path(current_user) %>
 					<%= link_to "Log Out", session_path(current_user), method: 'delete' %>
 				</p>
 			</div>
@@ -26,7 +27,7 @@
 			<div class="navmenu">
 				<p>Welcome to Seat Yourself</p>
 				<p>
-					<%= link_to "All Restaurants", root_path %>
+					<%= link_to "Home", root_path %>
 					<%= link_to "Sign Up", signup_path %>
 					<%= link_to "Log in", login_path %>
 				</p>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
+  before_action :user_profile_permission, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -41,9 +42,9 @@ class UsersController < ApplicationController
 
   def user_profile_permission
     get_user
-    unless @user.id == current_user
+    unless @user == current_user
       flash[:alert] = "That's not your profile ID. Redirected to your profile."
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     end
   end
 

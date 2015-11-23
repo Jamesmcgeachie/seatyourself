@@ -1,6 +1,4 @@
-<h1>Viewing all restaurants</h1>
-
-<div>
+<div class="restaurant-list">
 	<% @restaurants.each do |restaurant| %>
 	<p>
 			<div> <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> </div>

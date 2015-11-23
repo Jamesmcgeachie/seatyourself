@@ -1,6 +1,6 @@
 <h1>Showing details for <%= @restaurant.name %></h1>
 <div class="links">
-	<%= link_to "Back to Restaurants", restaurants_url %> |
+	<%= link_to "Back to home", categories_url %> |
 	<%= link_to "Edit", edit_restaurant_path(@restaurant) %>
 </div>
 
@@ -19,12 +19,18 @@
 	</div>
 </div>
 <div class="allresormakeres">
-	<% if @restaurant.is_owned_by?(current_user) %>
-		<% current_user.owned_restaurant.reservations.each do |reservation| %>
-			<p><%= "#{reservation.id}: #{reservation.user.first_name} #{reservation.user.last_name}, #{reservation.seating_time}, #{reservation.party_size}" %></p>
-			<% end %>
+	<% if current_user != nil %>
+		<% if @restaurant.is_owned_by?(current_user) %>
+			<% current_user.owned_restaurant.reservations.each do |reservation| %>
+				<p><%= "#{reservation.id}: #{reservation.user.first_name} #{reservation.user.last_name}, #{reservation.seating_time}, #{reservation.party_size}" %></p>
+				<% end %>
+		<% else %>
+			<p id="makeres"><%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %></p>
+		<% end %>
 	<% else %>
-		<p id="makeres"><%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %></p>
+		<p>
+			<%= link_to 'Login to make a reservation', login_path %>
+		</p>
 	<% end %>
 </div>
 <h1>Reviews</h1>
