@@ -27,6 +27,10 @@ before_action :owner_authorized, only: [:edit, :update]
   def show
     if current_user
       @review = @restaurant.reviews.build
+      @hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+        marker.lat restaurant.latitude
+        marker.lng restaurant.longitude
+      end
     end
   end
 
