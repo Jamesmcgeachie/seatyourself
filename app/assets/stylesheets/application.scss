@@ -54,6 +54,22 @@ body {
 			box-sizing: border-box;
 		}
 
+
+		.labels {
+			float: left;
+			margin-right: 10%;
+			padding: 1%;
+		}
+
+		.inputs {
+			float: left;
+			padding: 1%;
+		}
+
+		.submit {
+			clear: both;
+		}
+
 		.restaurant-list {
 			margin-top: 5%;
 
