@@ -9,14 +9,13 @@
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
-		<div class="logo">
+		<div class="logo" class="col-xs-3">
 			<p>Seat Yourself</p>
 		</div>
 		<% if current_user %>
-			<div class="navmenu">
+			<div class="navmenu" class="col-xs-9">
 		    <p>Logged in as <%= current_user.email %>.</p>
 				<p>
-					<%= link_to "Home", root_path %>
 					<%= link_to "My Reservations", reservations_path %>
 					<%= link_to "My Reviews", reviews_path %>
 					<%= link_to "My Profile", user_path(current_user) %>
@@ -24,10 +23,9 @@
 				</p>
 			</div>
 		<% else %>
-			<div class="navmenu">
+			<div class="navmenu" class="col-xs-9">
 				<p>Welcome to Seat Yourself</p>
 				<p>
-					<%= link_to "Home", root_path %>
 					<%= link_to "Sign Up", signup_path %>
 					<%= link_to "Log in", login_path %>
 				</p>
@@ -35,31 +33,26 @@
 		<% end %>
 	</div>
 </div>
-<div class="belownavcontent">
-	<div id="flashes">
-		<div class="container">
+<div class="container">
+	<div class="menu" class="col-xs-3">
+		<br>
+		<p>Home</p>
+		<p>About Seat Yourself</p>
+		<p>Restaurant Categories</p>
+		<p>All Restaurants</p>
+		<p>Placeholder</p>
+		<p>Placeholder</p>
+		<p>Placeholder</p>
+	</div>
+	<div class ="content" class="col-xs-9">
+		<div id="flashes">
 			<% if flash[:notice] %>
 				<p><%= flash[:notice] %></p>
 			<% elsif flash[:alert] %>
 				<p><%= flash[:alert] %></p>
 			<% end %>
 		</div>
-	</div>
-	<div class="container">
-		<div class="col-md-4">
-			<p>About Seat Yourself</p>
-			<p>Restaurant Categories</p>
-			<p>All Restaurants</p>
-			<p>Placeholder</p>
-			<p>Placeholder</p>
-			<p>Placeholder</p>
-		</div>
-		<div class="col-md-8">
-
-			<%= yield %>
-
-		</div>
-
+		<%= yield %>
 	</div>
 </div>
 </body>

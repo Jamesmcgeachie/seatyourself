@@ -1,23 +1,25 @@
-<%= form_for ([@restaurant, @reservation]) do |f| %>
-	<% if @reservation.errors.any? %>
-		<div class="errors">
-			<p>Reservation failed:</p>
-			<ul>
-				<% @reservation.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
+<div class="form">
+	<%= form_for ([@restaurant, @reservation]) do |f| %>
+		<% if @reservation.errors.any? %>
+			<div class="errors">
+				<p>Reservation failed:</p>
+				<ul>
+					<% @reservation.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<div class="labels">
+			<p><%= f.label :seating_time %></p>
+			<p><%= f.label :party_size %></p>
+		</div>
+		<div class="inputs">
+			<p><%= f.datetime_local_field :seating_time %></p>
+			<p><%= f.number_field :party_size %></p>
+		</div>
+		<div class="submit">
+			<p><%= f.submit  %></p>
 		</div>
 	<% end %>
-	<div class="labels">
-		<p><%= f.label :seating_time %></p>
-		<p><%= f.label :party_size %></p>
-	</div>
-	<div class="inputs">
-		<p><%= f.datetime_local_field :seating_time %></p>
-		<p><%= f.number_field :party_size %></p>
-	</div>
-	<div class="submit">
-		<p><%= f.submit  %></p>
-	</div>
-<% end %>
+</div>

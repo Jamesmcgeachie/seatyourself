@@ -1,11 +1,9 @@
 <h1>Reviews written by <%= current_user.first_name %></h1>
 
 <% @reviews.each do |review| %>
-	<div class="review">
 		<p>Ate at: <%= review.restaurant.name %></p>
 		<p>Left review on: <%= review.created_at %></p>
 		<p>Review title: <%= review.title %></p>
 		<p>Review:</p>
 		<p><%= review.body %></p>
-	</div>
 <% end %>

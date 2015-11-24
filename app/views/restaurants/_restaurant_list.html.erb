@@ -1,8 +1,8 @@
 <div class="restaurant-list">
 	<% @restaurants.each do |restaurant| %>
-	<p>
-			<div> <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %> </div>
-			<div> <%= restaurant.category.category_name %> </div>
-	</p>
+		<div class="restaurant">
+			<p><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></p>
+			<p><%= restaurant.category.category_name %></p>
+		</div>
 	<% end %>
 </div>
