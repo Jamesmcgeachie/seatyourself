@@ -1,12 +1,9 @@
 class RestaurantsController < ApplicationController
 
-
+before_action :authenticate_user, only: [:edit, :update]
 before_action :get_restaurant, only: [:show, :edit, :update]
 before_action :owner_authorized, only: [:edit, :update]
 
-  def index
-    @restaurants = Restaurant.all
-  end
 
   def new
     unless current_user.owned_restaurant
@@ -28,6 +25,9 @@ before_action :owner_authorized, only: [:edit, :update]
   end
 
   def show
+    if current_user
+      @review = @restaurant.reviews.build
+    end
   end
 
   def edit
@@ -35,7 +35,7 @@ before_action :owner_authorized, only: [:edit, :update]
 
   def update
     if @restaurant.update_attributes(restaurant_params)
-      redirect_to root_path, notice: "Successfully updated your restaurant account"
+      redirect_to restaurant_path(@restaurant), notice: "Successfully updated your restaurant details"
     else
       render :edit
     end
@@ -55,7 +55,7 @@ before_action :owner_authorized, only: [:edit, :update]
     get_restaurant
     unless @restaurant.is_owned_by?(current_user)
       flash[:alert] = "You do not own this restaurant."
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant)
     end
   end
 end

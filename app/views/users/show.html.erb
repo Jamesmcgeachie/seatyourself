@@ -1,2 +1,8 @@
 <h1>Your user profile</h1>
 
+	<p>Full name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
+	<p>Email: <%= @user.email %></p>
+	<p>Account created: <%= @user.created_at %></p>
+	<p>Account updated: <%= @user.updated_at %></p>
+	<br>
+	<%= link_to 'Edit your profile', edit_user_path(@user) %>

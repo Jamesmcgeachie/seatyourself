@@ -40,6 +40,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     if @reservation.destroy
+      flash[:notice] = "Reservation has been cancelled"
       redirect_to reservations_path
     else
       render :edit
