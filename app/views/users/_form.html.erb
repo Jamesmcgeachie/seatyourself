@@ -1,29 +1,31 @@
-<%= form_for @user do |f| %>
-	<% if @user.errors.any? %>
-		<div class="errors">
-			<h2>Invalid inputs. Could not create new user</h2>
-			<ul>
-				<% @user.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
+<div class="form-style">
+	<%= form_for @user do |f| %>
+		<% if @user.errors.any? %>
+			<div class="errors">
+				<h2>Invalid inputs. Could not create new user</h2>
+				<ul>
+					<% @user.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	<div class="labels">
+		<p><%= f.label :first_name %></p>
+		<p><%= f.label :last_name %></p>
+		<p><%= f.label :email %></p>
+		<p><%= f.label :password %></p>
+		<p><%= f.label :password_confirmation %></p>
+	</div>
+	<div class="inputs">
+		<p><%= f.text_field :first_name, { placeholder: 'jane' } %></p>
+		<p><%= f.text_field :last_name, { placeholder: 'doe' } %></p>
+		<p><%= f.text_field :email, { placeholder: 'janedoe@gmail.com' } %></p>
+		<p><%= f.password_field :password, { placeholder: 'agoodpassword' } %></p>
+		<p><%= f.password_field :password_confirmation, { placeholder: 'agoodpassword' } %></p>
+	</div>
+	<div class="submit">
+		<p><%= f.submit  %></p>
+	</div>
 	<% end %>
-<div class="labels">
-	<p><%= f.label :first_name %></p>
-	<p><%= f.label :last_name %></p>
-	<p><%= f.label :email %></p>
-	<p><%= f.label :password %></p>
-	<p><%= f.label :password_confirmation %></p>
 </div>
-<div class="inputs">
-	<p><%= f.text_field :first_name, { placeholder: 'jane' } %></p>
-	<p><%= f.text_field :last_name, { placeholder: 'doe' } %></p>
-	<p><%= f.text_field :email, { placeholder: 'janedoe@gmail.com' } %></p>
-	<p><%= f.password_field :password, { placeholder: 'agoodpassword' } %></p>
-	<p><%= f.password_field :password_confirmation, { placeholder: 'agoodpassword' } %></p>
-</div>
-<div class="submit">
-	<p><%= f.submit  %></p>
-</div>
-<% end %>

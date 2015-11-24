@@ -27,41 +27,43 @@ html {
 
 }
 
-.labels {
-	float: left;
-}
 
-.inputs {
-	float: right;
-}
 
-.submit {
-	clear: both;
-}
+// .labels {
+// 	float: left;
+// }
 
-.formstyle {
+// .inputs {
+// 	float: right;
+// }
 
-	width: 70%;
-	margin: auto;
+// .submit {
+// 	clear: both;
+// }
 
-}
+// .formstyle {
 
-form {
+// 	width: 70%;
+// 	margin: auto;
 
-	.labels {
+// }
 
-		padding: 5px;
-		font-size: 14px;
+// form {
 
-	}
+// 	.labels {
 
-	#summary {
+// 		padding: 5px;
+// 		font-size: 14px;
 
-		padding-top: 15px;
-		padding-bottom: 20px;
+// 	}
 
-	}
-}
+// 	#summary {
+
+// 		padding-top: 15px;
+// 		padding-bottom: 20px;
+
+// 	}
+// }
 
 body {
 
@@ -103,107 +105,109 @@ body {
 		}
 	}
 
-	.belownavcontent {
-
-		padding-top: 40px;
-
-		.container {
-
-			border: 2px solid $navbarandborder;
-			border-radius: 10px;
-			padding: 25px;
-
-		}
-	}
 }
 
-#flashes {
+// 	.belownavcontent {
 
-	.container {
+// 		padding-top: 40px;
 
-		border: none;
-		color: #A23D7C;
-		font-weight: bold;
-		font-size: 20px;
-		padding-top: 70px;
-		text-align: center;
+// 		.container {
 
-		p {
+// 			border: 2px solid $navbarandborder;
+// 			border-radius: 10px;
+// 			padding: 25px;
 
-			padding: 10px;
-			border: 2px dashed pink;
-			border-radius: 10px;
-			display: inline-block;
+// 		}
+// 	}
+// }
 
-		}
+// #flashes {
 
-	}
-}
+// 	.container {
 
-h1 {
-	font-size: 26px;
-	color: purple;
-	padding-bottom: 20px;
-	text-align: center;
-}
+// 		border: none;
+// 		color: #A23D7C;
+// 		font-weight: bold;
+// 		font-size: 20px;
+// 		padding-top: 70px;
+// 		text-align: center;
+
+// 		p {
+
+// 			padding: 10px;
+// 			border: 2px dashed pink;
+// 			border-radius: 10px;
+// 			display: inline-block;
+
+// 		}
+
+// 	}
+// }
+
+// h1 {
+// 	font-size: 26px;
+// 	color: purple;
+// 	padding-bottom: 20px;
+// 	text-align: center;
+// }
 
 
-div {
+// div {
 
-	.links {
-		text-align: center;
-		padding-bottom: 20px;
-	}
+// 	.links {
+// 		text-align: center;
+// 		padding-bottom: 20px;
+// 	}
 
-	.restaurantdetails {
+// 	.restaurantdetails {
 
-		text-align: center;
+// 		text-align: center;
 
-	}
+// 	}
 
-	.allresormakeres {
+// 	.allresormakeres {
 
-		padding-top: 20px;
-		clear: both;
-		text-align: center;
+// 		padding-top: 20px;
+// 		clear: both;
+// 		text-align: center;
 
-		#makeres {
+// 		#makeres {
 
-			font-size: 30px;
+// 			font-size: 30px;
 
-		}
-	}
-}
+// 		}
+// 	}
+// }
 
-.errors {
+// .errors {
 
-	width: 50%;
-	margin: auto;
+// 	width: 50%;
+// 	margin: auto;
 
-	p {
+// 	p {
 
-		text-align: left;
-	}
-}
+// 		text-align: left;
+// 	}
+// }
 
-.category-search {
+// .category-search {
 
-	text-align: center;
-}
+// 	text-align: center;
+// }
 
-.restaurant-list {
+// .restaurant-list {
 
-	text-align: center;
+// 	text-align: center;
 
-}
+// }
 
-.profile {
+// .profile {
 
-	text-align: center;
+// 	text-align: center;
 
-}
+// }
 
-.reviews {
+// .reviews {
 
-	text-align: center;
-}
+// 	text-align: center;
+// }
